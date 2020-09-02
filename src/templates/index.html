@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Sube tu imagen!!</title>
+</head>
+<body>
+	<h1>Bienvenido(a) al manejador de imagenes por bd</h1>
+	<div>
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				<ul class="flashes">
+				{% for message in messages %}
+					<li>{{ message }}</li>
+				{% endfor %}
+				</ul>
+			{% endif %}
+		{% endwith %}
+	</div>
+	<div>
+		<form action="/" enctype="multipart/form-data"  method="POST">
+			<label for="file">Subir Imagen</label>
+			<input type="file" name="file">
+			<input type="submit" value="Upload">
+		</form>
+	</div>
+</body>
+</html>
